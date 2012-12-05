@@ -1,10 +1,10 @@
-#JavaScript Haskell Optimiser
+##JavaScript Haskell Optimiser
 
-##To Install
+###Installing
 
-Note: The executable is included so you only need to install everything if you intend on modifying it.  If you only want to use JSHOP, skip to the "To Run" section.
+**NOTE:** The executable is included so you only need to install everything if you intend on modifying it.  If you do not want to modify JSHOP, skip to the "Running" section.
 
-Prerequisits:
+####Prerequisits:
 
 1. [Haskell Platform](http://www.haskell.org/platform/)
 2. [GNU Make](http://www.gnu.org/software/make/) `sudo apt-get install make`
@@ -13,7 +13,7 @@ Prerequisits:
 5. [Haddock Documentation Generator](http://www.haskell.org/haddock/) `cabal install haddock`
 6. [HsColour Syntax Highlighter](http://www.cs.york.ac.uk/fp/darcs/hscolour/) `sudo apt-get install hscolour` (optional - for nicer documentation)
 
-NOTE:
+**NOTE:**
 
 You may have to add the cabal bin folder to your path. Try typing `alex -v` and if it can't be found, add this to `~/.profile`:
 
@@ -24,15 +24,15 @@ if [ -d "$HOME/.cabal/bin" ] ; then
 fi
 ```
 
-Navigate to `src` directory:
+####Navigate to `src` directory:
 
 ```
 make
 ```
 
-##To Run
+###Running
 
-From directory containing `jshop.exe`:
+####From directory containing `jshop.exe`:
 
 ```
 USAGE:
