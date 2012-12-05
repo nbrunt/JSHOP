@@ -1,0 +1,18 @@
+Font files not included as some are proprietary
+
+Headings
+--------
+
+Myriad Pro Cond
+
+
+Main text
+---------
+
+Minion Pro
+
+
+Code
+----
+
+Inconsolata

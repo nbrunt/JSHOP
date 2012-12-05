@@ -1,0 +1,267 @@
+
+Parser.hs:6803:24:
+    The lambda expression `\ tk -> ...' has one argument,
+    but its type `Int' has none
+    In the first argument of `monadicLexer', namely
+      `(\ tk
+          -> let cont i = action i i tk (HappyState action) sts stk
+             in
+               case tk of {
+                 EOF -> action 139 139 tk (HappyState action) sts stk
+                 LitInt happy_dollar_dollar -> cont 63
+                 LitStr happy_dollar_dollar -> cont 64
+                 Id happy_dollar_dollar -> cont 65
+                 Regex happy_dollar_dollar -> cont 66
+                 ResId {ridName = "break"} -> cont 67
+                 ResId {ridName = "case"} -> cont 68
+                 ResId {ridName = "catch"} -> cont 69
+                 ResId {ridName = "continue"} -> cont 70
+                 ResId {ridName = "default"} -> cont 71
+                 ResId {ridName = "delete"} -> cont 72
+                 ResId {ridName = "do"} -> cont 73
+                 ResId {ridName = "else"} -> cont 74
+                 ResId {ridName = "false"} -> cont 75
+                 ResId {ridName = "finally"} -> cont 76
+                 ResId {ridName = "for"} -> cont 77
+                 ResId {ridName = "function"} -> cont 78
+                 ResId {ridName = "if"} -> cont 79
+                 ResId {ridName = "in"} -> cont 80
+                 ResId {ridName = "instanceof"} -> cont 81
+                 ResId {ridName = "new"} -> cont 82
+                 ResId {ridName = "null"} -> cont 83
+                 ResId {ridName = "return"} -> cont 84
+                 ResId {ridName = "switch"} -> cont 85
+                 ResId {ridName = "this"} -> cont 86
+                 ResId {ridName = "throw"} -> cont 87
+                 ResId {ridName = "true"} -> cont 88
+                 ResId {ridName = "try"} -> cont 89
+                 ResId {ridName = "typeof"} -> cont 90
+                 ResId {ridName = "var"} -> cont 91
+                 ResId {ridName = "void"} -> cont 92
+                 ResId {ridName = "while"} -> cont 93
+                 ResId {ridName = "with"} -> cont 94
+                 ResOp {ropName = "."} -> cont 95
+                 ResOp {ropName = "["} -> cont 96
+                 ResOp {ropName = "]"} -> cont 97
+                 ResOp {ropName = "("} -> cont 98
+                 ResOp {ropName = ")"} -> cont 99
+                 ResOp {ropName = "++"} -> cont 100
+                 ResOp {ropName = "--"} -> cont 101
+                 ResOp {ropName = "-"} -> cont 102
+                 ResOp {ropName = "+"} -> cont 103
+                 ResOp {ropName = "~"} -> cont 104
+                 ResOp {ropName = "!"} -> cont 105
+                 ResOp {ropName = "*"} -> cont 106
+                 ResOp {ropName = "/"} -> cont 107
+                 ResOp {ropName = "%"} -> cont 108
+                 ResOp {ropName = "<<"} -> cont 109
+                 ResOp {ropName = ">>"} -> cont 110
+                 ResOp {ropName = ">>>"} -> cont 111
+                 ResOp {ropName = "<"} -> cont 112
+                 ResOp {ropName = "<="} -> cont 113
+                 ResOp {ropName = ">"} -> cont 114
+                 ResOp {ropName = ">="} -> cont 115
+                 ResOp {ropName = "=="} -> cont 116
+                 ResOp {ropName = "!="} -> cont 117
+                 ResOp {ropName = "==="} -> cont 118
+                 ResOp {ropName = "!=="} -> cont 119
+                 ResOp {ropName = "&"} -> cont 120
+                 ResOp {ropName = "^"} -> cont 121
+                 ResOp {ropName = "|"} -> cont 122
+                 ResOp {ropName = "&&"} -> cont 123
+                 ResOp {ropName = "||"} -> cont 124
+                 ResOp {ropName = "?"} -> cont 125
+                 ResOp {ropName = ":"} -> cont 126
+                 ResOp {ropName = "="} -> cont 127
+                 ResOp {ropName = "*="} -> cont 128
+                 ResOp {ropName = "+="} -> cont 129
+                 ResOp {ropName = "-="} -> cont 130
+                 ResOp {ropName = "/="} -> cont 131
+                 ResOp {ropName = "%="} -> cont 132
+                 ResOp {ropName = ","} -> cont 133
+                 ResOp {ropName = ";"} -> cont 134
+                 ResOp {ropName = "{"} -> cont 135
+                 ResOp {ropName = "}"} -> cont 136
+                 Other happy_dollar_dollar -> cont 137
+                 EOF -> cont 138
+                 _ -> happyError' tk })'
+    In the expression:
+      monadicLexer
+        (\ tk
+           -> let cont i = action i i tk (HappyState action) sts stk
+              in
+                case tk of {
+                  EOF -> action 139 139 tk (HappyState action) sts stk
+                  LitInt happy_dollar_dollar -> cont 63
+                  LitStr happy_dollar_dollar -> cont 64
+                  Id happy_dollar_dollar -> cont 65
+                  Regex happy_dollar_dollar -> cont 66
+                  ResId {ridName = "break"} -> cont 67
+                  ResId {ridName = "case"} -> cont 68
+                  ResId {ridName = "catch"} -> cont 69
+                  ResId {ridName = "continue"} -> cont 70
+                  ResId {ridName = "default"} -> cont 71
+                  ResId {ridName = "delete"} -> cont 72
+                  ResId {ridName = "do"} -> cont 73
+                  ResId {ridName = "else"} -> cont 74
+                  ResId {ridName = "false"} -> cont 75
+                  ResId {ridName = "finally"} -> cont 76
+                  ResId {ridName = "for"} -> cont 77
+                  ResId {ridName = "function"} -> cont 78
+                  ResId {ridName = "if"} -> cont 79
+                  ResId {ridName = "in"} -> cont 80
+                  ResId {ridName = "instanceof"} -> cont 81
+                  ResId {ridName = "new"} -> cont 82
+                  ResId {ridName = "null"} -> cont 83
+                  ResId {ridName = "return"} -> cont 84
+                  ResId {ridName = "switch"} -> cont 85
+                  ResId {ridName = "this"} -> cont 86
+                  ResId {ridName = "throw"} -> cont 87
+                  ResId {ridName = "true"} -> cont 88
+                  ResId {ridName = "try"} -> cont 89
+                  ResId {ridName = "typeof"} -> cont 90
+                  ResId {ridName = "var"} -> cont 91
+                  ResId {ridName = "void"} -> cont 92
+                  ResId {ridName = "while"} -> cont 93
+                  ResId {ridName = "with"} -> cont 94
+                  ResOp {ropName = "."} -> cont 95
+                  ResOp {ropName = "["} -> cont 96
+                  ResOp {ropName = "]"} -> cont 97
+                  ResOp {ropName = "("} -> cont 98
+                  ResOp {ropName = ")"} -> cont 99
+                  ResOp {ropName = "++"} -> cont 100
+                  ResOp {ropName = "--"} -> cont 101
+                  ResOp {ropName = "-"} -> cont 102
+                  ResOp {ropName = "+"} -> cont 103
+                  ResOp {ropName = "~"} -> cont 104
+                  ResOp {ropName = "!"} -> cont 105
+                  ResOp {ropName = "*"} -> cont 106
+                  ResOp {ropName = "/"} -> cont 107
+                  ResOp {ropName = "%"} -> cont 108
+                  ResOp {ropName = "<<"} -> cont 109
+                  ResOp {ropName = ">>"} -> cont 110
+                  ResOp {ropName = ">>>"} -> cont 111
+                  ResOp {ropName = "<"} -> cont 112
+                  ResOp {ropName = "<="} -> cont 113
+                  ResOp {ropName = ">"} -> cont 114
+                  ResOp {ropName = ">="} -> cont 115
+                  ResOp {ropName = "=="} -> cont 116
+                  ResOp {ropName = "!="} -> cont 117
+                  ResOp {ropName = "==="} -> cont 118
+                  ResOp {ropName = "!=="} -> cont 119
+                  ResOp {ropName = "&"} -> cont 120
+                  ResOp {ropName = "^"} -> cont 121
+                  ResOp {ropName = "|"} -> cont 122
+                  ResOp {ropName = "&&"} -> cont 123
+                  ResOp {ropName = "||"} -> cont 124
+                  ResOp {ropName = "?"} -> cont 125
+                  ResOp {ropName = ":"} -> cont 126
+                  ResOp {ropName = "="} -> cont 127
+                  ResOp {ropName = "*="} -> cont 128
+                  ResOp {ropName = "+="} -> cont 129
+                  ResOp {ropName = "-="} -> cont 130
+                  ResOp {ropName = "/="} -> cont 131
+                  ResOp {ropName = "%="} -> cont 132
+                  ResOp {ropName = ","} -> cont 133
+                  ResOp {ropName = ";"} -> cont 134
+                  ResOp {ropName = "{"} -> cont 135
+                  ResOp {ropName = "}"} -> cont 136
+                  Other happy_dollar_dollar -> cont 137
+                  EOF -> cont 138
+                  _ -> happyError' tk })
+    In an equation for `happyNewToken':
+        happyNewToken action sts stk
+          = monadicLexer
+              (\ tk
+                 -> let cont i = ...
+                    in
+                      case tk of {
+                        EOF -> action 139 139 tk (HappyState action) sts stk
+                        LitInt happy_dollar_dollar -> cont 63
+                        LitStr happy_dollar_dollar -> cont 64
+                        Id happy_dollar_dollar -> cont 65
+                        Regex happy_dollar_dollar -> cont 66
+                        ResId {ridName = "break"} -> cont 67
+                        ResId {ridName = "case"} -> cont 68
+                        ResId {ridName = "catch"} -> cont 69
+                        ResId {ridName = "continue"} -> cont 70
+                        ResId {ridName = "default"} -> cont 71
+                        ResId {ridName = "delete"} -> cont 72
+                        ResId {ridName = "do"} -> cont 73
+                        ResId {ridName = "else"} -> cont 74
+                        ResId {ridName = "false"} -> cont 75
+                        ResId {ridName = "finally"} -> cont 76
+                        ResId {ridName = "for"} -> cont 77
+                        ResId {ridName = "function"} -> cont 78
+                        ResId {ridName = "if"} -> cont 79
+                        ResId {ridName = "in"} -> cont 80
+                        ResId {ridName = "instanceof"} -> cont 81
+                        ResId {ridName = "new"} -> cont 82
+                        ResId {ridName = "null"} -> cont 83
+                        ResId {ridName = "return"} -> cont 84
+                        ResId {ridName = "switch"} -> cont 85
+                        ResId {ridName = "this"} -> cont 86
+                        ResId {ridName = "throw"} -> cont 87
+                        ResId {ridName = "true"} -> cont 88
+                        ResId {ridName = "try"} -> cont 89
+                        ResId {ridName = "typeof"} -> cont 90
+                        ResId {ridName = "var"} -> cont 91
+                        ResId {ridName = "void"} -> cont 92
+                        ResId {ridName = "while"} -> cont 93
+                        ResId {ridName = "with"} -> cont 94
+                        ResOp {ropName = "."} -> cont 95
+                        ResOp {ropName = "["} -> cont 96
+                        ResOp {ropName = "]"} -> cont 97
+                        ResOp {ropName = "("} -> cont 98
+                        ResOp {ropName = ")"} -> cont 99
+                        ResOp {ropName = "++"} -> cont 100
+                        ResOp {ropName = "--"} -> cont 101
+                        ResOp {ropName = "-"} -> cont 102
+                        ResOp {ropName = "+"} -> cont 103
+                        ResOp {ropName = "~"} -> cont 104
+                        ResOp {ropName = "!"} -> cont 105
+                        ResOp {ropName = "*"} -> cont 106
+                        ResOp {ropName = "/"} -> cont 107
+                        ResOp {ropName = "%"} -> cont 108
+                        ResOp {ropName = "<<"} -> cont 109
+                        ResOp {ropName = ">>"} -> cont 110
+                        ResOp {ropName = ">>>"} -> cont 111
+                        ResOp {ropName = "<"} -> cont 112
+                        ResOp {ropName = "<="} -> cont 113
+                        ResOp {ropName = ">"} -> cont 114
+                        ResOp {ropName = ">="} -> cont 115
+                        ResOp {ropName = "=="} -> cont 116
+                        ResOp {ropName = "!="} -> cont 117
+                        ResOp {ropName = "==="} -> cont 118
+                        ResOp {ropName = "!=="} -> cont 119
+                        ResOp {ropName = "&"} -> cont 120
+                        ResOp {ropName = "^"} -> cont 121
+                        ResOp {ropName = "|"} -> cont 122
+                        ResOp {ropName = "&&"} -> cont 123
+                        ResOp {ropName = "||"} -> cont 124
+                        ResOp {ropName = "?"} -> cont 125
+                        ResOp {ropName = ":"} -> cont 126
+                        ResOp {ropName = "="} -> cont 127
+                        ResOp {ropName = "*="} -> cont 128
+                        ResOp {ropName = "+="} -> cont 129
+                        ResOp {ropName = "-="} -> cont 130
+                        ResOp {ropName = "/="} -> cont 131
+                        ResOp {ropName = "%="} -> cont 132
+                        ResOp {ropName = ","} -> cont 133
+                        ResOp {ropName = ";"} -> cont 134
+                        ResOp {ropName = "{"} -> cont 135
+                        ResOp {ropName = "}"} -> cont 136
+                        Other happy_dollar_dollar -> cont 137
+                        EOF -> cont 138
+                        _ -> happyError' tk })
+
+Parser.hs:6904:32:
+    Couldn't match expected type `b1 -> b0'
+                with actual type `StateT
+                                    LexerState
+                                    (ErrorT String Data.Functor.Identity.Identity)
+                                    Program'
+    Expected type: b1 -> b0
+      Actual type: P Program
+    In the first argument of `(.)', namely `parse'
+    In the second argument of `(.)', namely `parse . lexer'

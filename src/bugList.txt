@@ -1,0 +1,201 @@
+BUG LIST
+--------
+
+ Description                           |  Date Found  |  Date Solved  |  Details
+---------------------------------------+--------------+---------------+------------------------------
+Line numbers are calculated incorrectly|  14/1        |  28/2         | Added token for single line
+by the lexer.  Single line comments    |              |               | comments rather than calling
+mess up the numbering. LOW PRIORITY.   |              |               | them whitespace.  Deal with
+                                       |              |               | them in monadicLexer'.
+---------------------------------------+--------------+---------------+------------------------------
+Spaces will be removed between unary   |  9/2         |               | 27/2 Temp fix: Always add
+and postfix operators                  |              |               | space before ++a and after
+                                       |              |               | a++.  Same for --.
+Recreate with                          |              |               | Not optimal.
+x = a++ +b; -> x=a+++b;                |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+for (var .. in ..) not parsing         |  9/2         |  9/2          | Added new terminal to parser
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+/*comments*/ directly after WS are     |  25/2        |  26/2         | Changed lexer return type to
+lexed as Regex because of the way WS   |              |               | Either (Token,String) String
+is skipped by lexer function.  Not     |              |               | so that we have a chance to
+given chance to detect comment.        |              |               | detect comments before lexing
+                                       |              |               | again.
+Recreate with                          |              |               |
+ /*comment*/                           |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Literal strings do not allow           |  26/2        |  26/2         | Modified $graphic macro in
+underscores                            |              |               | lexer to accept underscores
+                                       |              |               |
+Recreate with                          |              |               |
+"test_123"                             |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Empty functions are not accepted       |  26/2        |  26/2         | Modified sources nonterminal
+                                       |              |               | in Parser.y to accept epsilon
+Recreate with                          |              |               |
+function() {}                          |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Floating point literal numbers are     |  26/2        |  27/2         | Added support for literal
+not supported                          |              |               | bools, null, hex, oct, and
+                                       |              |               | floats
+Recreate with                          |              |               |
+0.1                                    |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Input file cannot end with single      |  27/2        |  27/2         | Made newline on single-line
+line comment.  "Expecting semi-colon   |              |               | comments optional in lexer.
+or newline." Doesn't register as       |              |               |
+comment as it does not end with        |              |               |
+newline.                               |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Assignments after += (or any other     |  27/2        |  27/2         | Changed type of ExprStmt to 
+assignOp presumably) are not allowed.  |              |               | [Expression] and added non-
+                                       |              |               | terminals to Parser to
+Recreate with:                         |              |               | account for this.  Also
+a += b, b = '';                        |              |               | modified autoSemiInsert
+                                       |              |               | function to accept commas.
+---------------------------------------+--------------+---------------+------------------------------
+Escaped quotes in strings caused       |  27/2        |  27/2         | Added escape characters to
+errors. (Only escaped quotes that are  |              |               | exceptions to strings in
+the same as the type of quote wrapping |              |               | lexer.
+this particlar string.)                |              |               |
+                                       |              |               |
+Recreate with:                         |              |               |
+a = "\""                               |              |               |
+or a = '\''                            |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Comma operator was not implemented.    |  27/2        |  27/2         | Removed changes made for
+In hindsight, this was the cause of    |              |               | previous bug.  Changed def
+the a += b, b = ''; error (2 above).   |              |               | of Expression in parser to
+                                       |              |               | accept commas as per ECMA-262
+Recreate with:                         |              |               | def of 'comma operator'.
+while ( (a, b) == c ) {;}              |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Bracketed expressions immediately      |  27/2        |  27/2         | Modified autoSemiInsert
+after assignments with no ending ;     |              |               | function to check for '('
+failed. Convoluted or what? Wouldn't   |              |               |
+have found it if not for prototype.js  |              |               |
+                                       |              |               |
+Recreate with:                         |              |               |
+a = function(){}(b.c);                 |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Regex matcher is too greedy.           |  27/2        |  28/2         | Made change to regex matcher
+                                       |              |               | to fix first bug, then added
+Recreate with:                         |              |               | hack to fix the comment one.
+a.replace(/\\/g, '/');                 |              |               | See Lexer.x for details.
+(Matches /\\/g, '/ as Regex)           |              |               |
+Also a = 0.5 / 2;	// Decimal           |              |               |
+(Matches / 2; / as Regex)              |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+autoSemiInsert before EOF did not work.|  28/2        |  28/2         | Added EOF to autoSemiInsert
+                                       |              |               | checks.
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Assignments do not support ||.         |  28/2        |  28/2         | Added funcExpr to MemberExpr
+                                       |              |               | in parse tree, parser and 
+Recreate with:                         |              |               | codecomp.
+a = b || function() {}                 |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Escaped hexadecimals in strings cause  |  28/2        |  28/2         | Added hex to possible escape
+lexical error.                         |              |               | chars in strings.
+                                       |              |               |
+Recreate with:                         |              |               |
+a = "\xA0";                            |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Empty blocks were parsed as empty      |  28/2        |  28/2         | Added specific rule for
+object literals instead.               |              |               | blocks to detect empty list.
+                                       |              |               | It's a hack really, as the
+Recreate with:                         |              |               | empty list should get picked
+if (x>y) {} else {}                    |              |               | up in stmtList anyway, but
+                                       |              |               | it's just a quirk of Haskell's
+                                       |              |               | pattern matching.
+---------------------------------------+--------------+---------------+------------------------------
+Assignment operators for shifts are    |  28/2        |  28/2         | Added support for >>=, <<=,
+not supported.                         |              |               | >>>=, &=, ^= and |=
+                                       |              |               |
+Recreate with:                         |              |               |
+>>=                                    |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+function calls loose their brackets.   |  28/2        |  28/2         | Modified genCallExpr to add
+                                       |              |               | brackets to CallMember.
+Recreate with:                         |              |               |
+alert("hello, world");                 |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Call and New expressions did not handle|  3/3         |  3/3          | Changed genAssignSeq to
+argument lists properly.  Missed out   |              |               | genAssignList and added ()
+parentheses and commas.                |              |               | to new expr.
+                                       |              |               |
+Recreate with:                         |              |               |   
+return new obj.thing(a,b,c);           |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Conditional catches were missing "if"  |  4/3         |  4/3          | Added emit " if " to CC
+                                       |              |               | pattern.
+Recreate with:                         |              |               |
+try {myTest();}                        |              |               |
+catch (e if e instanceof TypeError)... |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+CallCall missed parentheses and did    |  4/3         |  4/3          | Added () and changed
+not add commas between args.           |              |               | genAssignSeq to genAssignList
+                                       |              |               | Removed genAssignSeq as there
+Recreate with:                         |              |               | is actually no case when it
+slice.call(arguments).join(",")        |              |               | would be useful.
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Semicolons after var declarations were |  5/3         |  5/3          | Added optional ';' to pattern
+not accounted for in the parser.       |              |               | for varStmt in Parser.y
+                                       |              |               |
+Recreate with:                         |              |               |
+var var1, var2 = 5;                    |              |               |
+Generated var var1, var2 = 5;;         |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Regexs were still not matching properly|  5/3         |  6/3          | Modified regex following
+especially when parsing already parsed |              |               | chars.  Split regex into
+files.                                 |              |               | sections in the lexer for
+                                       |              |               | easier reading.
+---------------------------------------+--------------+---------------+------------------------------
+Object properties were shortened and   |  5/3         |  6/3          | Changed emitID to emit in
+were causing problems.                 |              |               | MemberCall pattern in CC.
+                                       |              |               |
+Recreate with:                         |              |               |
+var document = window.document;        |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+Variables which were used before being |  4/3         |  8/3          | Completely rewrote variable
+declared messed up the compressor.     |              |               | shrinker so that it made a
+                                       |              |               | full pass over the parse tree
+Recreate with:                         |              |               | and detected all variables
+var jQuery = function() {              |              |               | before generating the final
+  return init(rootjQuery );            |              |               | code.
+}, rootjQuery;                         |              |               |
+                                       |              |               |
+---------------------------------------+--------------+---------------+------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -18,3 +18,37 @@
 Icon?
 ehthumbs.db
 Thumbs.db
+
+# Font files - not included as some are proprietary #
+#####################################################
+*.abf
+*.afm
+*.bdf
+*.bmf
+*.fnt
+*.fon
+*.mgf
+*.otf
+*.pcf
+*.pfa
+*.pfb
+*.pfm
+*.afm
+*.sfd
+*.snf
+*.tdf
+*.tfm
+*.ttf
+*.ttc
+
+# All documentation files - Can be generated using `make doc` #
+###############################################################
+src/doc/*.*
+src/doc/src/*.html
+
+# Lexer and Parser compile and info files - generated on every `make` #
+#######################################################################
+src/Lexer.hs
+src/Parser.hs
+src/Lexer.info
+src/Parser.info

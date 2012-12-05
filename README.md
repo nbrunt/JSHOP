@@ -2,6 +2,28 @@
 
 ##To Install
 
+Note: The executable is included so you only need to install everything if you intend on modifying it.  If you only want to use JSHOP, skip to the "To Run" section.
+
+Prerequisits:
+
+1. [Haskell Platform](http://www.haskell.org/platform/)
+2. [GNU Make](http://www.gnu.org/software/make/) `sudo apt-get install make`
+3. [Alex Lexer Generator](http://www.haskell.org/alex/) `cabal install alex`
+4. [Happy Parser Generator](http://www.haskell.org/happy/) `cabal install happy`
+5. [Haddock Documentation Generator](http://www.haskell.org/haddock/) `cabal install haddock`
+6. [HsColour Syntax Highlighter](http://www.cs.york.ac.uk/fp/darcs/hscolour/) `sudo apt-get install hscolour` (optional - for nicer documentation)
+
+NOTE:
+
+You may have to add the cabal bin folder to your path. Try typing `alex -v` and if it can't be found, add this to `~/.profile`:
+
+```bash
+# set PATH so it includes cabal binaries
+if [ -d "$HOME/.cabal/bin" ] ; then
+  PATH="$PATH:$HOME/.cabal/bin"
+fi
+```
+
 Navigate to `src` directory:
 
 ```
