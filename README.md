@@ -2,7 +2,7 @@
 
 Copyright &copy; 2012 [Nick Brunt](http://nickbrunt.com)
 
-JSHOP is a parser and [compressor](http://en.wikipedia.org/wiki/Minification_(programming)) for JavaScript written in the functional programming language [Haskell](http://www.haskell.org/haskellwiki/Haskell).  The project was the subject of my dissertation and earned a first class mark which went towards my B.Sc. in Computer Science at the University of Nottingham.  The dissertation is included.
+JSHOP is a parser and [compressor](http://en.wikipedia.org/wiki/Minification_(programming\)) for JavaScript written in the functional programming language [Haskell](http://www.haskell.org/haskellwiki/Haskell).  The project was the subject of my dissertation and earned a first class mark.  The dissertation is included.
 
 Here is a table to compare its results to other popular JavaScript minifiers and compressors when given the jQuery library (v1.7.1 which is 248,235 chars long uncompressed):
 <table>
@@ -15,22 +15,22 @@ Here is a table to compare its results to other popular JavaScript minifiers and
   </thead>
   <tbody>
     <tr>
-      <td>[JSMin](http://www.crockford.com/javascript/jsmin.html)</td>
+      <td><a href="http://www.crockford.com/javascript/jsmin.html">JSMin</a></td>
       <td>139,092</td>
       <td>56.03</td>
     </tr>
     <tr>
-      <td>[/packer/](http://dean.edwards.name/packer/)</td>
+      <td><a href="http://dean.edwards.name/packer/">/packer/</a></td>
       <td>114,030</td>
       <td>45.94</td>
     </tr>
     <tr>
-      <td>[Yahoo! User Interface (YUI) compressor](http://developer.yahoo.com/yui/compressor/)</td>
+      <td><a href="http://developer.yahoo.com/yui/compressor/">Yahoo! User Interface (YUI) compressor</a></td>
       <td>104,684</td>
       <td>42.17</td>
     </tr>
-    <tr>
-      <td>[JavaScript Haskell Optimiser (JSHOP)](https://github.com/nbrunt/jshop)</a></td>
+    <tr class="info">
+      <td><a href="https://github.com/nbrunt/jshop">JavaScript Haskell Optimiser (JSHOP)</a></td>
       <td>101,236</td>
       <td>40.78</td>
     </tr>
@@ -122,7 +122,7 @@ Example input and output
 
 3. The following results will be given:
 
-  ```
+  ```javascript
   $ ./jshop.exe file.js
   OUTPUT:
   function complexTest(a,b){var c=0,d=[];c+=a>0?a:b;alert("Nick's result = "+2.5*c);return d.push(c)}
@@ -138,63 +138,63 @@ Example input and output
   ./jshop.exe --help
   ```
 
-The following information will be shown:
-
-```
-USAGE:
-    jshop [options] file.js     Compress "file.js"
-    jshop [options]             Read input from standard input.
-                                (Terminate with Ctrl+D, Enter in UNIX, or Ctrl+Z,
-                                 Enter in Windows. Must be on a new line.)
-
-DEFAULT OUTPUT:
-   Compressed JS and ratio of input to output.
-
-OPTIONS:
-   Output
-       --help, --h
-           Print help message and stop.
-
-       --version, --ver, --v
-           Print JSHOP version and stop.
-
-       --output, --out, --o
-           Write output to [file].min.js. Default it output.min.js if no file given.
-
-       --input, --i
-           Print input.
-
-       --tokens, --tok
-           Print list of tokens.
-
-       --tree
-           Print the Parse tree.
-
-       --lstate
-           Print the Lexer state.
-
-       --all
-           Print input, tokens, Parse tree, Lexer state, output and ratio.
-
-       --rembloat
-           Experimental. Removes bloat from the Parse tree. Can make it unreadable.
-           Only works with --tree or --all.
-
-       --prettyprint, --pp
-           Experimental. Pretty prints the output for ease of reading.
-
-   Testing
-       --test --t ["message"]
-           Run full test suite and stop. Message is optional. If added, test
-           results will be saved to file.
-
-       --showAverages
-           Displays the average compression ratios for all past tests.
-
-       --showTest NUM
-           Displays a past test of index NUM.
-
-       --showAllTests
-           Displays all past tests.
-
-```
+  The following information will be shown:
+  
+  ```
+  USAGE:
+      jshop [options] file.js     Compress "file.js"
+      jshop [options]             Read input from standard input.
+                                  (Terminate with Ctrl+D, Enter in UNIX, or Ctrl+Z,
+                                   Enter in Windows. Must be on a new line.)
+  
+  DEFAULT OUTPUT:
+     Compressed JS and ratio of input to output.
+  
+  OPTIONS:
+     Output
+         --help, --h
+             Print help message and stop.
+  
+         --version, --ver, --v
+             Print JSHOP version and stop.
+  
+         --output, --out, --o
+             Write output to [file].min.js. Default it output.min.js if no file given.
+  
+         --input, --i
+             Print input.
+  
+         --tokens, --tok
+             Print list of tokens.
+  
+         --tree
+             Print the Parse tree.
+  
+         --lstate
+             Print the Lexer state.
+  
+         --all
+             Print input, tokens, Parse tree, Lexer state, output and ratio.
+  
+         --rembloat
+             Experimental. Removes bloat from the Parse tree. Can make it unreadable.
+             Only works with --tree or --all.
+  
+         --prettyprint, --pp
+             Experimental. Pretty prints the output for ease of reading.
+  
+     Testing
+         --test --t ["message"]
+             Run full test suite and stop. Message is optional. If added, test
+             results will be saved to file.
+  
+         --showAverages
+             Displays the average compression ratios for all past tests.
+  
+         --showTest NUM
+             Displays a past test of index NUM.
+  
+         --showAllTests
+             Displays all past tests.
+  
+  ```
