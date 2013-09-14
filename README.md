@@ -2,7 +2,7 @@
 
 Copyright &copy; 2012 [Nick Brunt](http://nickbrunt.com)
 
-JSHOP is a parser and [compressor](http://en.wikipedia.org/wiki/Minification_(programming\)) for JavaScript written in the functional programming language [Haskell](http://www.haskell.org/haskellwiki/Haskell).  The project was the subject of my dissertation and earned a first class mark.  The dissertation is included.
+JSHOP is a parser and [compressor](http://en.wikipedia.org/wiki/Minification_(programming\)) for JavaScript written in the functional programming language [Haskell](http://www.haskell.org/haskellwiki/Haskell).  The project was the subject of my dissertation (included).
 
 Here is a table to compare its results to other popular JavaScript minifiers and compressors when given the jQuery library (v1.7.1 which is 248,235 chars long uncompressed):
 <table>
@@ -80,7 +80,7 @@ This guide is aimed at a Linux user, but I have successfully run this through [c
 
 ####Compiling
 
-Navigate to `src` directory.
+Navigate to the `src` directory.
 
 1. To compile the project and generate the executable, run `make`
 2. To remove compiled classes and objects, run `make clean`
