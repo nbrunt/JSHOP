@@ -1,8 +1,8 @@
-#JavaScript Haskell Optimiser
+# JavaScript Haskell Optimiser
 
-Copyright &copy; 2012 [Nick Brunt](http://nickbrunt.com)
+Copyright &copy; 2012 Nick Brunt
 
-JSHOP is a parser and [compressor](http://en.wikipedia.org/wiki/Minification_(programming\)) for JavaScript written in the functional programming language [Haskell](http://www.haskell.org/haskellwiki/Haskell).  The project was the subject of my dissertation (included).
+JSHOP is a parser and [compressor](http://en.wikipedia.org/wiki/Minification_(programming)) for JavaScript written in the functional programming language [Haskell](http://www.haskell.org/haskellwiki/Haskell).  The project was the subject of my dissertation (included).
 
 Here is a table to compare its results to other popular JavaScript minifiers and compressors when given the jQuery library (v1.7.1 which is 248,235 chars long uncompressed):
 <table>
@@ -37,7 +37,7 @@ Here is a table to compare its results to other popular JavaScript minifiers and
   </tbody>
 </table>
 
-####Compression techniques:
+#### Compression techniques:
 
 1. Removing the following tokens from the source code
   - Single-line comments
@@ -53,13 +53,13 @@ Here is a table to compare its results to other popular JavaScript minifiers and
 5. Various other small optimisations
 
 
-##Installing
+## Installing
 
 **Note:** The executable is included so if you do not want to modify JSHOP, skip to the [Running](#running) section.
 
 This guide is aimed at a Linux user, but I have successfully run this through [cygwin](http://cygwin.com) on Windows and I am sure it could be run natively on Windows too but have never tried it.
 
-####Prerequisits
+#### Prerequisits
 
 1. [Haskell Platform](http://www.haskell.org/platform/) `sudo apt-get install haskell-platform`
 2. [GNU Make](http://www.gnu.org/software/make/) `sudo apt-get install make`
@@ -78,7 +78,7 @@ This guide is aimed at a Linux user, but I have successfully run this through [c
   ```
   Then run `source ~/.profile` in your terminal.
 
-####Compiling
+#### Compiling
 
 Navigate to the `src` directory.
 
@@ -89,7 +89,7 @@ Navigate to the `src` directory.
 5. To clean up the whole project and remove all unnecessary files (including the executable and documentation), run `make really-clean`
 
 <a id="running"></a>
-##Running
+## Running
 
 Example input and output
 
